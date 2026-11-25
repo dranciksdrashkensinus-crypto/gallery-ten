@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: ten-gallery
+    runtime: node
+    region: frankfurt
+    plan: 0.5c-512mb
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+    disk:
+      name: gallery-data
+      mountPath: /opt/render/project/src/data
+      sizeGB: 1
